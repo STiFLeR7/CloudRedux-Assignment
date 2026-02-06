@@ -132,10 +132,9 @@ Open **http://localhost:8000/dev-ui/** in your browser. Select `agent` from the 
 **What happens** (all deterministic, no LLM):
 1. Reads Pune rules from `memory.json`
 2. Loads vendors from `mock_vendors.json`
-3. Filters out BadRock Cements (banned)
-4. Selects GoodRock (cheapest valid @ ₹42,000)
-5. Calculates 100 × ₹42,000 = ₹42,00,000
-6. Exceeds ₹40,000 limit → returns `AWAITING_APPROVAL`
+3. Filters out BadRock Cements (banned) — even though it's cheapest at ₹35,000
+4. Selects GoodRock (cheapest valid vendor @ ₹42,000)
+5. ₹42,000 > ₹40,000 limit → returns `AWAITING_APPROVAL`
 
 ---
 
