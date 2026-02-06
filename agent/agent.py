@@ -77,7 +77,7 @@ def process_procurement(site: str, item: str, quantity: int) -> dict:
             "banned_vendors": banned_vendors,
         }
 
-    total_cost = selected["price"] * quantity
+    total_cost = selected["price"]
 
     # 3. Apply approval logic
     if total_cost <= approval_limit:
@@ -87,7 +87,6 @@ def process_procurement(site: str, item: str, quantity: int) -> dict:
             "item": item,
             "quantity": quantity,
             "selected_vendor": selected["name"],
-            "unit_price": selected["price"],
             "total_cost": total_cost,
             "approval_limit": approval_limit,
             "reason": f"Cost ₹{total_cost:,} is within approval limit of ₹{approval_limit:,}",
